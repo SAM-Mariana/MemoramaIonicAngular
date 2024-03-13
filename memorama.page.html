@@ -1,0 +1,23 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>memorama</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">memorama</ion-title>
+    </ion-toolbar>
+  </ion-header>
+  <ion-grid class="card-grid">
+    <ion-row class="card-row" *ngFor="let row of grid">
+      <ion-col class="card-col" *ngFor="let card of row" (click)="flipCard(card)">
+        <div class="card" [ngClass]="{ 'flipped': card.flipped, 'matched': card.matched }">
+          <div class="front-face">M</div>
+          <div class="back-face">{{ card.value }}</div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
